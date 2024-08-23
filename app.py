@@ -41,7 +41,7 @@ swagger_config = {
 }
 
 swagger.config = swagger_config
-swagger = Swagger(app)
+
 
 class UppercaseText(Resource):
     def get(self):
