@@ -12,7 +12,7 @@ def require_auth(func):
         
         token = parts[1]
         if not is_valid_token(token):
-            return 403
+            return jsonify({"text": text.upper()},403)
         
         # Call the original function
         return func(*args, **kwargs)
