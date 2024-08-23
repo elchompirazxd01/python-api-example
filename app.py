@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_restful import Api, Resource
 from flask_swagger_ui import get_swaggerui_blueprint
-
+from auth import require_auth
 app = Flask(__name__)
 api = Api(app)
 
@@ -71,6 +71,7 @@ def swagger_spec():
     return jsonify(spec)
 
 class UppercaseText(Resource):
+    @require_auth
     def get(self):
         """
         This method responds to the GET request for this endpoint and returns the data in uppercase.
