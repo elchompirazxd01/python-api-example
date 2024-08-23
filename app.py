@@ -7,7 +7,40 @@ import auth
 
 app = Flask(__name__)
 api = Api(app)
-swagger = Swagger(app)
+#swagger = Swagger(app)
+
+swagger_config = {
+    "swagger": "2.0",
+    "info": {
+        "title": "My API",
+        "version": "1.0.0",
+    },
+    "securityDefinitions": {
+        "BearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "Enter your Bearer token in the format **Bearer {123456dsfsdiiee}**",
+        }
+    },
+    "security": [
+        {"BearerAuth": []}
+    ],
+    "tags": [
+        {
+            "name": "Text Processing",
+            "description": "Text processing operations"
+        },
+        {
+            "name": "Records",
+            "description": "Book records operations"
+        }
+    ]
+}
+
+swagger = Swagger(app, config=swagger_config)
+
+
 
 class UppercaseText(Resource):
     @auth.token_required
@@ -15,14 +48,6 @@ class UppercaseText(Resource):
         """
         This method responds to the GET request for this endpoint and returns the data in uppercase.
         ---
-        components:
-            securitySchemes:
-                bearerAuth:   
-                type: http
-                scheme: bearer
-                bearerFormat: JWT
-        security:
-            - bearerAuth: []
         tags:
         - Text Processing
         parameters:
