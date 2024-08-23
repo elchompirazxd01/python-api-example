@@ -95,6 +95,10 @@ class UppercaseText(Resource):
                             text:
                                 type: string
                                 description: The text in uppercase
+            401:
+                description: Unauthorized, missing or invalid token
+            403:
+                description: Forbidden, invalid token
         """
         text = request.args.get('text')
         if text is None:
