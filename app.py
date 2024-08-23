@@ -7,15 +7,22 @@ import auth
 
 app = Flask(__name__)
 api = Api(app)
-#swagger = Swagger(app)
+swagger = Swagger(app)
 
+# Configure Swagger for Bearer token authentication
 swagger_config = {
+    "swagger": "2.0",
+    "info": {
+        "title": "My API",
+        "version": "1.0.0",
+        "description": "API documentation"
+    },
     "securityDefinitions": {
         "BearerAuth": {
             "type": "apiKey",
             "name": "Authorization",
             "in": "header",
-            "description": "Enter your Bearer token in the format **Bearer {123456dsfsdiiee}**",
+            "description": "Enter your Bearer token in the format **Bearer {token}**"
         }
     },
     "security": [
@@ -33,8 +40,7 @@ swagger_config = {
     ]
 }
 
-swagger = Swagger(app, config=swagger_config)
-
+swagger.config = swagger_config
 
 
 class UppercaseText(Resource):
