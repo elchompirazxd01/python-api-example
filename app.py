@@ -62,7 +62,7 @@ def swagger_spec():
                                     }
                                 }
                             }
-                        }
+                        },
                          "401": {
                             "description": "Ya se mamo",
                             "schema": {
