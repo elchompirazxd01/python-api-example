@@ -34,17 +34,16 @@ swagger_config = {
             "description": "Text processing operations"
         },
         {
-            "name": "Records",
+            "name": "Record",
             "description": "Book records operations"
         }
     ]
 }
 
 swagger.config = swagger_config
-
+swagger = Swagger(app)
 
 class UppercaseText(Resource):
-    @auth.token_required
     def get(self):
         """
         This method responds to the GET request for this endpoint and returns the data in uppercase.
