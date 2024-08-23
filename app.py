@@ -7,7 +7,7 @@ import auth
 
 app = Flask(__name__)
 api = Api(app)
-swagger = Swagger(app)
+
 
 # Configure Swagger for Bearer token authentication
 swagger_config = {
@@ -41,7 +41,7 @@ swagger_config = {
 }
 
 swagger.config = swagger_config
-
+swagger = Swagger(app)
 
 class UppercaseText(Resource):
     def get(self):
