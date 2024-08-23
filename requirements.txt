@@ -6,3 +6,4 @@ gunicorn
 flask-swag
 flask-swagger-ui
 functools
+pip install --upgrade pip
