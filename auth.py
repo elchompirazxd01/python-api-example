@@ -3,16 +3,16 @@ from flask import request, jsonify
 def require_auth(func):
     def decorated_function(*args, **kwargs):
         auth_header = request.headers.get('Authorization')
-        if auth_header == '':
-            return jsonify({"message": "Missing Authorization Header"}), 401
+        if not auth_header'':
+            return 401
         
         parts = auth_header.split()
         if len(parts) != 2 or parts[0] != 'Bearer':
-            return jsonify({"message": "Invalid Authorization Header Format"}), 401
+            return 401
         
         token = parts[1]
         if not is_valid_token(token):
-            return jsonify({"message": "Invalid Token"}), 403
+            return 403
         
         # Call the original function
         return func(*args, **kwargs)
