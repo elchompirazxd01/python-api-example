@@ -35,7 +35,7 @@ def swagger_spec():
             }
         },
         "security": [
-            {"BearerAuth": ["token"]}
+            {"BearerAuth": []}
         ],
         "paths": {
             "/uppercase": {
