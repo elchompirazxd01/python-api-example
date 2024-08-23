@@ -10,10 +10,6 @@ api = Api(app)
 #swagger = Swagger(app)
 
 swagger_config = {
-    "info": {
-        "title": "My API",
-        "version": "1.0.0",
-    },
     "securityDefinitions": {
         "BearerAuth": {
             "type": "apiKey",
