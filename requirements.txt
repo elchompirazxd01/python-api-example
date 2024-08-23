@@ -1,3 +1,4 @@
+pip install --upgrade pip
 flask
 flasgger
 flask_restful
@@ -6,4 +7,3 @@ gunicorn
 flask-swag
 flask-swagger-ui
 functools
-pip install --upgrade pip
