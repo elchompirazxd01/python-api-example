@@ -3,7 +3,7 @@ from flask import request, jsonify
 def require_auth(func):
     def decorated_function(*args, **kwargs):
         auth_header = request.headers.get('Authorization')
-        if not auth_header'':
+        if not auth_header:
             return 401
         
         parts = auth_header.split()
