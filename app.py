@@ -63,6 +63,18 @@ def swagger_spec():
                                 }
                             }
                         }
+                         "401": {
+                            "description": "Ya se mamo",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {
+                                        "type": "string",
+                                        "description": "The text in uppercase"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
