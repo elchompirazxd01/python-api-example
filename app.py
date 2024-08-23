@@ -10,7 +10,7 @@ api = Api(app)
 swagger = Swagger(app)
 
 class UppercaseText(Resource):
-    @token_required
+    @auth.token_required
     def get(self):
         """
         This method responds to the GET request for this endpoint and returns the data in uppercase.
