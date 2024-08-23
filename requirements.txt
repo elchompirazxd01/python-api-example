@@ -5,3 +5,4 @@ pyairtable
 gunicorn
 flask-swag
 flask-swagger-ui
+functools
