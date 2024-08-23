@@ -1,8 +1,6 @@
-from functools import wraps
 from flask import request, jsonify
 
-def require_auth(f):
-    @wraps(f)
+def require_auth(func):
     def decorated_function(*args, **kwargs):
         auth_header = request.headers.get('Authorization')
         if not auth_header:
@@ -16,7 +14,8 @@ def require_auth(f):
         if not is_valid_token(token):
             return jsonify({"message": "Invalid Token"}), 403
         
-        return f(*args, **kwargs)
+        # Call the original function
+        return func(*args, **kwargs)
     
     return decorated_function
 
