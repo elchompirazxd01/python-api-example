@@ -10,7 +10,6 @@ api = Api(app)
 #swagger = Swagger(app)
 
 swagger_config = {
-    "swagger": "2.0",
     "info": {
         "title": "My API",
         "version": "1.0.0",
