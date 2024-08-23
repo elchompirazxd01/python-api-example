@@ -35,7 +35,7 @@ def swagger_spec():
             }
         },
         "security": [
-            {"BearerAuth": []}
+            {"BearerAuth": ["token"]}
         ],
         "paths": {
             "/uppercase": {
@@ -98,7 +98,7 @@ class UppercaseText(Resource):
         """
         text = request.args.get('text')
         if text is None:
-            return jsonify({"message": "Missing 'text' query parameter"}), 400
+            return jsonify({"message": "Missing text query parameter"}), 400
         return jsonify({"text": text.upper()})
 
 api.add_resource(UppercaseText, "/uppercase")
