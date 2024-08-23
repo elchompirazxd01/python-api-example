@@ -15,6 +15,14 @@ class UppercaseText(Resource):
         """
         This method responds to the GET request for this endpoint and returns the data in uppercase.
         ---
+        components:
+            securitySchemes:
+                bearerAuth:   
+                type: http
+                scheme: bearer
+                bearerFormat: JWT
+        security:
+            - bearerAuth: []
         tags:
         - Text Processing
         parameters:
