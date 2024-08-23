@@ -31,7 +31,7 @@ def swagger_spec():
                 "type": "apiKey",
                 "name": "Authorization",
                 "in": "header",
-                "description": "Enter your Bearer token in the format **Bearer {232233}**"
+                "description": "Enter your Bearer token in the format **Bearer {token}**"
             }
         },
         "security": [
