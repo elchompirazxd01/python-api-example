@@ -97,6 +97,8 @@ class UppercaseText(Resource):
                                 description: The text in uppercase
         """
         text = request.args.get('text')
+        if text is None:
+            return jsonify({"message": "Missing 'text' query parameter"}), 400
         return jsonify({"text": text.upper()})
 
 api.add_resource(UppercaseText, "/uppercase")
