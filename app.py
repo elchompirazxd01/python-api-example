@@ -52,7 +52,7 @@ def swagger_spec():
                     ],
                     "responses": {
                         "200": {
-                            "description": "A successful GET request",
+                            "description": "A successful GET request test",
                             "schema": {
                                 "type": "object",
                                 "properties": {
