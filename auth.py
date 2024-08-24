@@ -1,18 +1,20 @@
-from flask import request, jsonify
+from flask import request
 
 def require_auth(func):
     def decorated_function(*args, **kwargs):
         auth_header = request.headers.get('Authorization')
         if not auth_header:
+            response = "Invalid Token"
             return 401
         
         parts = auth_header.split()
         if len(parts) != 2 or parts[0] != 'Bearer':
+            response = "Invalid Token"
             return 401
         
         token = parts[1]
         if not is_valid_token(token):
-            response = "({'message':'A winner is you'})"
+            response = "Invalid Token"
             return response, 401
         
         # Call the original function
