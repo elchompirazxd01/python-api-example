@@ -12,7 +12,7 @@ def require_auth(func):
         
         token = parts[1]
         if not is_valid_token(token):
-            response = jsonify({'message':'A winner is you'})
+            response = "({'message':'A winner is you'})"
             return response, 401
         
         # Call the original function
